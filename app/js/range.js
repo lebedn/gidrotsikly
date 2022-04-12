@@ -1,64 +1,30 @@
-var $range = $(".js-range-slider"),
-    $inputFrom = $(".js-input-from"),
-    $inputTo = $(".js-input-to"),
-    instance,
-    min = 0,
-    max = 1000,
-    from = 0,
-    to = 0;
+const rangeInput = document.querySelectorAll('.range-input input'),
+    progress = document.querySelector('.aside-filter__range-price .aside-filter__range-progress'),
+    priceInput = document.querySelectorAll('.aside-filter__range-num input');
+let priceGap = 1000;
 
-$range.ionRangeSlider({
-    skin: "round",
-    type: "double",
-    min: min,
-    max: max,
-    from: 200,
-    to: 800,
-    onStart: updateInputs,
-    onChange: updateInputs,
-    onFinish: updateInputs
-});
-instance = $range.data("ionRangeSlider");
 
-function updateInputs(data) {
-    from = data.from;
-    to = data.to;
+rangeInput.forEach(input => {
+    input.addEventListener('input', (e) => {
+        // getting two ranges value and parsing  them  to number
+        let minVal = parseInt(rangeInput[0].value),
+            maxVal = parseInt(rangeInput[1].value);
 
-    $inputFrom.prop("value", from);
-    $inputTo.prop("value", to);
-}
+        if (maxVal - minVal < priceGap) {
+            if (e.target.className === "rande-min") { // if active is min slider
+                rangeInput[0].value = maxVal - priceGap;
+            } else {
+                rangeInput[1].value = minVal + priceGap;
+            }
 
-$inputFrom.on("change", function () {
-    var val = $(this).prop("value");
+        } else {
+            priceInput[0].value = minVal;
+            priceInput[1].value = maxVal;
+            progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+            progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+        }
 
-    // validate
-    if (val < min) {
-        val = min;
-    } else if (val > to) {
-        val = to;
-    }
+        /*let percent = (minVal / rangeInput[0].max) * 100;*/
 
-    instance.update({
-        from: val
     });
-
-    $(this).prop("value", val);
-
-});
-
-$inputTo.on("change", function () {
-    var val = $(this).prop("value");
-
-    // validate
-    if (val < from) {
-        val = from;
-    } else if (val > max) {
-        val = max;
-    }
-
-    instance.update({
-        to: val
-    });
-
-    $(this).prop("value", val);
 });

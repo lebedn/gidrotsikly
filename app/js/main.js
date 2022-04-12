@@ -135,6 +135,6 @@ try {
 
 });
 
-    $(".js-range-slider").ionRangeSlider();
+  
    
 

@@ -13,7 +13,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/ion.rangeSlider.min.css">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
@@ -200,22 +199,25 @@
                   <div class="aside-filter__drop">
                     <p class="aside-filter__title aside-filter__toggle">Цена</p>
                     <div class="aside-filter__drop-content aside-filter__drop-range show">
-                      <input type="text" class="js-range-slider" name="my_range" value="" data-type="double"
-                        data-min="0" data-max="1000" data-from="200" data-to="500" data-grid="true" />
-
-                      <!-- <label class="aside-filter__label-range">
-                        <span class="aside-filter__text-range">от</span>
-                        <input type="number" min="10000" max="999999" placeholder="100 000" class="aside-filter__range"
-                          id="input-0">
-                      </label>
-                      <label class="aside-filter__label-range">
-                        <span class="aside-filter__text-range">до</span>
-                        <input type="number" min="10000" max="999999" placeholder="5000000" class="aside-filter__range"
-                          id="input-1">
-                      </label> -->
+                      <div class="aside-filter__range-price">
+                        <div class="aside-filter__range-progress"></div>
+                      </div>
+                      <div class="range-input">
+                        <input type="range" class="rande-min" min="0" max="1000000" value="100000">
+                        <input type="range" class="range__max" min="0" max="1000000" value="500000">
+                      </div>
+                      <div class="aside-filter__field">
+                        <div class="aside-filter__range-num">
+                          <span class="aside-filter__range-text">от</span>
+                          <input type="number" value="100000" class="aside-filter__input-price input-min">
+                        </div>
+                        <div class="aside-filter__range-num">
+                          <span class="aside-filter__range-text">до</span>
+                          <input type="number" value="500000" class="aside-filter__input-price input-max">
+                        </div>
+                      </div>
                     </div>
                   </div>
-
                 </ul>
               </div>
             </div>
@@ -653,12 +655,9 @@
   </footer>
   </div>
 
-
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="./js/nouislider.min.js"></script>
   <script src="js/slick.min.js"></script>
-  <script src="js/ion.rangeSlider.min.js"></script>
+  <script src="js/range.js"></script>
   <script src="js/main.js"></script>
 </body>
 
