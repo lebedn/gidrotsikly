@@ -1,0 +1,119 @@
+.header {
+    &__top-inner {
+        font-family: 'SFProDisplay-Bold', sans-serif;
+        font-weight: 700;
+        min-height: 122px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__box {
+        display: flex;
+    }
+    &__address {
+        margin-right: 60px;
+        width: 265px;
+        padding-left: 30px;
+        position: relative;
+
+        &::before {
+            content: '';
+            background-image: url(../../images/header/location-1.svg);
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 0;
+            top: -10px;
+            bottom: 0;
+        }
+    }
+}
+
+.menu-categories {
+    background-color: #F0F0F4;
+    min-height: 53px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &__item {
+        font-family: 'SF Pro Display';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    &__link {
+        position: relative;
+        transition: font-weight 2s;
+        color: $title-color;
+        font-family: 'SF Pro Display';
+        font-weight: 400;
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            transition: width 0.5s;
+        }
+        &:hover:after {
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            height: 2px;
+            transition: width 0.5s;
+            background-color: #1C62CD;
+        }
+
+        &:hover {
+            font-weight: 600;
+        }
+    }
+}
+
+.menu {
+    &__list {
+        display: flex;
+    }
+    &__item+&__item {
+        padding-left: 50px;
+    }
+    &__link {
+        color: $title-color;
+    }
+}
+
+.user-list {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    &__item {
+        padding-right: 10px;
+    }
+}
+.backet {
+    position: relative;
+}
+.backet__num {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    font-family: 'SF Pro Display';
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 20px;
+    color: #FFFFFF;
+    background-color: #1C62CD;
+    border-radius: 50%;
+    text-align: center;
+    bottom: -25px;
+    right: -46px;
+}

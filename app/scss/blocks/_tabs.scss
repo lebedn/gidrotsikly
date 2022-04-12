@@ -1,0 +1,26 @@
+.tab--active  {
+    border-bottom: 2px solid #1C62CD;
+
+}
+.aside-filter__tab.tab--active-aside  {
+    border-bottom: 2px solid #1C62CD;
+    font-family: SFProDisplay-Bold, sans-serif;
+    font-weight: 700;
+    color:$title-color;
+  
+  
+
+}
+
+.tabs-wrapper {
+    transition: all 0.3s;
+    display: flex;
+    margin-bottom: 25px;
+    
+
+}
+.tab + .tab  {
+    margin-left: 50px;
+    padding-bottom: 10px;
+}
+

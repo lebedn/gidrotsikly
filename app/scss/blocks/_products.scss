@@ -1,0 +1,222 @@
+.products {
+    margin-bottom: 80px;
+    &__title {
+        font-family: 'Barlow', sans-serif;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 30px;
+        color: $title-color;
+        margin-bottom: 25px;
+    }
+    &__more {
+        text-align: center;
+        margin-top: 35px;
+    }
+    &__more-link {
+        font-family: 'SF Pro Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 18px;
+        text-align: center;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+
+        text-align: center;
+        background: #F0F0F4;
+        padding: 17px 43px;
+        width: 252px;
+    }
+    &__arrow {
+        top: 50%;
+        margin: 0;
+        padding: 0;
+        transform: translateY(-50%);
+        position: absolute;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+
+        &-prev {
+            left: -37px;
+            z-index: 20;
+        }
+
+        &-next {
+            right: -20px;
+            z-index: 20;
+        }
+    }
+    &__item {
+        border: 1px solid #CDCDCD;
+        border-radius: 3px;
+        position: relative;
+        text-align: center;
+        padding: 52px 0 31px;
+        width: 271px;
+        transition: all 0.3s;
+        height: 420px;
+
+        &:hover &-hovertxt {
+            opacity: 1;
+        }
+
+        &:hover {
+            &-title {
+                color: #1C62CD;
+            }
+
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        &:hover &-title {
+            color: #1C62CD;
+        }
+
+        &:hover &-price {
+            color: #1C62CD;
+        }
+
+        &-hovertxt {
+            opacity: 0;
+            position: absolute;
+            left: 20px;
+            right: 0;
+            top: 30%;
+            transition: all 0.3s;
+            display: inline-block;
+            padding: 18px 31px;
+            width: 230px;
+            background-color: rgba(#fff, .9);
+            z-index: 100;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+            color: $title-color;
+        }
+
+        &-title {
+            width: 230px;
+            display: block;
+            margin: 0 auto;
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            color: $title-color;
+            padding: 14px 0px 25px;
+        }
+
+        &-price {
+            font-family: 'Barlow';
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 36px;
+            color: $title-color;
+        }
+
+        &-img {
+            display: block;
+            margin: 0 auto;
+            object-fit: contain;
+            height: 200px;
+        }
+
+        &-favorite {
+            position: absolute;
+            background-color: transparent;
+            top: 16px;
+            right: 19px;
+            width: 24px;
+            height: 22px;
+            border: none;
+            z-index: 5;
+
+            img {
+                max-width: 24px;
+            }
+        }
+
+        &-imglink {
+            display: block;
+            position: relative;
+        }
+
+        &-basket {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background: #1C62CD;
+            border-radius: 10px 0px 0px 0px;
+            border: none;
+            cursor: pointer;
+            bottom: 0px;
+            right: 0;
+            z-index: 100;
+
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+
+            &:hover {
+                transform: translateY(1px);
+            }
+        }
+
+        &--sale:before {
+            content: 'SALE';
+            padding: 8px 15px;
+            background-color: #1C62CD;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: 0.07em;
+            color: #FFFFFF;
+            text-transform: uppercase;
+        }
+
+        &-notify-text {
+            display: none;
+        }
+
+        &-notify-link {
+            display: none;
+        }
+    }
+
+}
+
+.products__item-not-available .products__item-price {
+    display: none;
+}
+
+.products__item-not-available .products__item-notify-text {
+    display: block;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: $title-color;
+}
+
+.products__item-not-available .products__item-notify-link {
+    display: block;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #1C62CD;
+    text-decoration: underline;
+    padding-top: 13px;
+}
+
+.products__item-not-available .products__item-basket {
+    display: none;
+
+}

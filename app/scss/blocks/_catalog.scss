@@ -1,0 +1,110 @@
+.catalog {
+    margin-bottom: 100px;
+   &__title {
+       margin-bottom: 26px;
+       font-family: 'SF Pro Display', sans-serif;
+       font-weight: 700;
+       font-size: 30px;
+       line-height: 36px;
+       color: $title-color;
+   }
+   
+   &__filter {
+       margin-bottom: 50px;
+       display: flex;
+       justify-content: space-between;
+
+       &-items button + button {
+           margin-left: 8px;
+           cursor: pointer;
+       }
+       &-item {
+           padding: 4px 22px;
+           background: #F0F0F4;
+           border-radius: 3px;
+           border: none;
+           font-size: 14px;
+           line-height: 17px;
+           color:rgba(#2F3035, .7)
+       }
+       &-select {
+           width: 178px;
+           height: 33px;
+           border: 1.5px solid #D7D9DF;
+           font-size: 14px;
+           
+           option {
+               font-family: 'SF Pro Display';
+               font-weight: 400;
+               font-size: 14px;
+               line-height: 17px;
+               padding: 8px 46px 8px 20px;
+           }
+
+       }
+       &-btngrid,
+       &-btnline {
+           background:transparent;
+           border:none;
+           cursor: pointer;
+           margin: 0;
+           padding: 0;
+       }
+       &-btns button + button{
+           margin-left: 10px;
+       }
+   }
+   &__inner {
+       display: flex;
+       &-aside {
+           min-width: 290px;
+           margin-right: 10px;
+       }
+       &-list {
+           display: flex;
+           justify-content: space-between;
+           flex-wrap: wrap;
+           
+       }
+      
+       &-list .products__item{
+           margin-bottom: 30px;
+       }
+
+   }
+
+}
+.pagination {
+    margin-top: 70px;
+    width: 100%;
+    &-list {
+        display: flex;
+        
+        justify-content: center;
+        &__item {
+            list-style-type: none;
+        }
+        &__link {
+            display: block;
+            border: 2px solid transparent;
+            margin: 0 11px;
+            padding: 6px 15px;
+            color: #C4C4C4;
+            font-family: 'Barlow';
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 22px;
+        }
+       
+        
+    }
+     &--active  a {
+         border: 2px solid #1C62CD;
+         color: #1C62CD; 
+         font-weight: bold;
+        
+     }
+    
+
+}
+ 
