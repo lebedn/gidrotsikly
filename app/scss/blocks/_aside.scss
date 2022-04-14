@@ -2,8 +2,9 @@
     &__tabs {
         display: flex;
         margin-bottom: 45px;
-        
+
     }
+
     &__tab {
         font-family: 'SF Pro Display', sans-serif;
         font-weight: 400;
@@ -13,22 +14,25 @@
         text-transform: uppercase;
         color: #C4C4C4;
         width: 50%;
-       
+        cursor: pointer;
+
     }
+
     &__title {
         font-family: 'SFProDisplay-Semibold', sans-serif;
         font-weight: 600;
         font-size: 16px;
         line-height: 19px;
         color: $title-color;
-        padding-left: 26px;     
+        padding-left: 26px;
     }
-    
+
     &__toggle {
-        display:block;
+        display: block;
         cursor: pointer;
         margin-bottom: 20px;
         position: relative;
+
         &::before {
             content: '';
             background-image: url(../../images/content/drop-arrow.svg);
@@ -41,25 +45,30 @@
 
         }
     }
+
     &__drop {
-      &-content {
-        display: flex;
-        opacity: 0;
-        margin-bottom: 0px;   
-        max-height: 0px;    
+        &-content {
+            display: flex;
+            opacity: 0;
+            margin-bottom: 0px;
+            max-height: 0px;
+        }
     }
-    }
+
     &__box {
         width: 50%;
     }
+
     &__box-width {
-         margin-right: 20px;
+        margin-right: 20px;
     }
+
     &__checkbox {
         position: absolute;
         z-index: -1;
         opacity: 0;
     }
+
     &__checkbox-label {
         font-size: 14px;
         line-height: 17px;
@@ -75,29 +84,91 @@
         border-radius: 1px;
         margin-right: 12px;
         background-repeat: no-repeat;
-        
+
     }
 
     &__checkbox:checked+label::before {
         border-color: #1C62CD;
-        background-color: #1C62CD;;
-    }  
+        background-color: #1C62CD;
+        ;
+    }
+
+    &__select {
+        margin: 40px 0 40px;
+        border-bottom: 2px solid #C4C4C4;
+
+        &-box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &-title {
+            font-family: 'SFProDisplay-Semibold', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 19px;
+            padding-bottom: 14px;
+
+        }
+
+        &-list {
+            width: 68px;
+            border: none;
+            position: relative;
+            cursor: pointer;
+            font-family: 'Barlow';
+            font-weight: 400;
+            font-size: 14px;
+            color: #48494D;
+            line-height: 17px;
+            outline: none;
+            background-image: url('../../images/select-props.svg');
+            background-repeat: no-repeat;
+            background-size: 12px 8px;
+            background-position: 40px 12px;
+        }
+
+        select  option { 
+            font-family: 'Barlow';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+            color: rgba(0, 0, 0, 0.6);
+            padding: 15px 19px 8px 15px;
+
+    }
+    option:focus{
+        color: rgba(0, 0, 0, 0.6);
+        background-color:rgba(107, 126, 172, 0.05);
+        
+        
+    }
+
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    select::-ms-expand {
+        display: none;
+    }
+}
+
+
 }
 
 .drop--active {
-  
+
     &::before {
         transform: rotate(180deg);
     }
 }
+
 .show {
     opacity: 1;
     margin-bottom: 40px;
     max-height: 100%;
-   
+
 }
-
-   
-
-
-

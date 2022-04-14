@@ -110,7 +110,6 @@ function dropFilter(btn, activeClass) {
       btnDrop.addEventListener('click', function () {
          this.classList.toggle(activeClass);
          this.nextElementSibling.classList.toggle('show');
-         this.nextElementSibling.style.transition = 'all 0.7s ';
 
       });
    });

@@ -68,6 +68,7 @@
         background: #1C62CD;
         border-radius: 50%;
         pointer-events: auto;
+        
     }
 
     input[type=range]::-moz-range-thumb {
@@ -78,6 +79,9 @@
         border-radius: 50%;
         pointer-events: auto;
         border:none;
+    }
+    input:focus {
+        outline: 0;
     }
 
 }
