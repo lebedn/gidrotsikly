@@ -135,40 +135,64 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function selectProps(btn, content, list, itemClass, activeClass, ) {
+function selectProps(btn, content, list, itemClass, activeClass) {
    const btnSelect = document.querySelector(btn),
       contentSelect = document.querySelector(content),
-    
       listSelect = document.querySelector(list);
-   let power = [90, 130, 154, 230, 300];
-   let motor = [40, 160, 194, 200, 220];
 
-   function addItem() {
-      listSelect.innerHTML = "";
-      power.forEach(item => {
-         let li = `<li class=${itemClass}><span>${item}</span></li>`;
-         listSelect.insertAdjacentHTML("beforeend", li);
-        /*  console.log(li); */
-      });
-      
-   }
-   addItem();
-   const liItem = document.querySelectorAll('ul .aside-filter__select-item');
-  
-   console.log(liItem);
-   liItem.forEach(item => {
-      item.addEventListener('click', function () {
-         updateName(this);  
-           liItem.forEach(li=>{
-              li.classList.remove('select-item--active');
+   let power = [90, 130, 154, 230, 300];
+   let motor = [70, 120, 194, 290, 300];
+   let speed = [60, 120, 150, 200, 220];
+
+
+   function addItem(list) {
+      list.innerHTML = "";
+      if (list.classList.contains('select-power__list')) {
+         power.forEach(item => {
+            let li = `<li class='${itemClass} select-power__item'><span>${item}</span></li>`;
+            list.insertAdjacentHTML("beforeend", li);
+            /*  console.log(li); */
+         });
+      }
+      if (list.classList.contains('select-motor__list')) {
+         motor.forEach(item => {
+            let li = `<li class='${itemClass} select-motor__item'><span>${item}</span></li>`;
+            list.insertAdjacentHTML("beforeend", li);
+         });
+      }
+        if (list.classList.contains('select-speed__list')) {
+           speed.forEach(item => {
+              let li = `<li class='${itemClass} select-speed__item'><span>${item}</span></li>`;
+              list.insertAdjacentHTML("beforeend", li);
            });
-        this.classList.add('select-item--active');
-        btnSelect.classList.remove('select--active');
+        }
+
+
+
+   }
+
+   addItem(listSelect);
+
+
+   function listStyle(item) {
+      const liItem = document.querySelectorAll('.aside-filter__select-item');
+console.log(liItem);
+      liItem.forEach(item => {
+         item.addEventListener('click', function () {
+            console.log(this);
+            updateName(this);
+            liItem.forEach(li => {
+               li.classList.remove('select-item--active');
+            });
+            this.classList.add('select-item--active');
+            btnSelect.classList.remove('select--active');
+         });
       });
-   });
+   }
+   listStyle();
 
    function updateName(selectedLi) {
-      console.log(selectedLi.firstElementChild.textContent);
+
       btnSelect.firstElementChild.textContent = selectedLi.textContent;
       contentSelect.classList.remove(activeClass);
    }
@@ -178,5 +202,9 @@ function selectProps(btn, content, list, itemClass, activeClass, ) {
    });
 }
 
-selectProps('.aside-filter__select-btn.power-trigger', '.aside-filter__select-wrapper', '.aside-filter__select-list',
+selectProps('.aside-filter__select-btn.select-power__btn', '.aside-filter__select-wrapper.select-power__wrapper', '.aside-filter__select-list.select-power__list',
    'aside-filter__select-item', 'triggersSelect');
+selectProps('.aside-filter__select-btn.select-motor__btn', '.aside-filter__select-wrapper.select-motor__wrapper', '.aside-filter__select-list.select-motor__list',
+   'aside-filter__select-item', 'triggersSelect');
+   selectProps('.aside-filter__select-btn.select-speed__btn', '.aside-filter__select-wrapper.select-speed__wrapper', '.aside-filter__select-list.select-speed__list',
+      'aside-filter__select-item', 'triggersSelect');
