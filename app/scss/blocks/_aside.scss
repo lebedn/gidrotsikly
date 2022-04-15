@@ -95,11 +95,24 @@
 
     &__select {
         margin: 40px 0 40px;
-        border-bottom: 2px solid #C4C4C4;
+        position: relative;
 
         &-box {
+            position: relative;
             display: flex;
             justify-content: space-between;
+            z-index: 2;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-bottom: 2px solid #C4C4C4;
+                width: 100%;
+            }
+
         }
 
         &-title {
@@ -108,11 +121,12 @@
             font-size: 16px;
             line-height: 19px;
             padding-bottom: 14px;
-
+            width: 100%;
         }
 
-        &-list {
-            width: 68px;
+        &-btn {
+            width: 82px;
+            height: 20px;
             border: none;
             position: relative;
             cursor: pointer;
@@ -121,46 +135,70 @@
             font-size: 14px;
             color: #48494D;
             line-height: 17px;
-            outline: none;
-            background-image: url('../../images/select-props.svg');
-            background-repeat: no-repeat;
-            background-size: 12px 8px;
-            background-position: 40px 12px;
+
+            svg {
+                background-repeat: no-repeat;
+                margin-left: 10px;
+                transition: transform 0.3s linear;
+                transform: rotate(180deg);
+            }
+
         }
 
-        select  option { 
+        &-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-content: flex-end;
+            opacity: 0;
+        }
+
+        ul &-list {
+            z-index: 10;
+            background-color: #fff;
+            position: absolute;
+            top: -10px;
+            min-width: 70px;
+            min-height: 127px;
+            border: 1px solid #E0E0E0;
+
+        }
+
+        &-item {
+            margin-top: 10px;
+            height: 20px;
             font-family: 'Barlow';
             font-weight: 400;
             font-size: 14px;
             line-height: 17px;
             color: rgba(0, 0, 0, 0.6);
-            padding: 15px 19px 8px 15px;
-
-    }
-    option:focus{
-        color: rgba(0, 0, 0, 0.6);
-        background-color:rgba(107, 126, 172, 0.05);
-        
-        
-    }
-
-
-    select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
+            width: 100%;
+            cursor: pointer;
+            span {
+                padding-left: 10px;
+            }
+            &:hover {
+                background: rgba(107, 126, 172, 0.05);
+        }
     }
 
-    select::-ms-expand {
-        display: none;
     }
+
+.select-item--active{
+background: rgba(107, 126, 172, 0.05);
+}
+}
+.triggersSelect{
+  opacity: 1;  
 }
 
-
+ .select--active {
+    svg {
+        transform: rotate(0deg);
+    }
+    
 }
-
 .drop--active {
-
     &::before {
         transform: rotate(180deg);
     }
