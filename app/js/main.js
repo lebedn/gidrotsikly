@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function selectProps(btn, content, list, itemClass, activeClass) {
+function selectProps(btn, content, list, itemClass, activeClass, liitems) {
    const btnSelect = document.querySelector(btn),
       contentSelect = document.querySelector(content),
       listSelect = document.querySelector(list);
@@ -151,7 +151,6 @@ function selectProps(btn, content, list, itemClass, activeClass) {
          power.forEach(item => {
             let li = `<li class='${itemClass} select-power__item'><span>${item}</span></li>`;
             list.insertAdjacentHTML("beforeend", li);
-            /*  console.log(li); */
          });
       }
       if (list.classList.contains('select-motor__list')) {
@@ -160,27 +159,23 @@ function selectProps(btn, content, list, itemClass, activeClass) {
             list.insertAdjacentHTML("beforeend", li);
          });
       }
-        if (list.classList.contains('select-speed__list')) {
-           speed.forEach(item => {
-              let li = `<li class='${itemClass} select-speed__item'><span>${item}</span></li>`;
-              list.insertAdjacentHTML("beforeend", li);
-           });
-        }
-
-
-
+      if (list.classList.contains('select-speed__list')) {
+         speed.forEach(item => {
+            let li = `<li class='${itemClass} select-speed__item'><span>${item}</span></li>`;
+            list.insertAdjacentHTML("beforeend", li);
+         });
+      }
    }
 
    addItem(listSelect);
 
-
    function listStyle(item) {
-      const liItem = document.querySelectorAll('.aside-filter__select-item');
-console.log(liItem);
+      const liItem = document.querySelectorAll(`${item}`);
+       updateName(liItem[0]);
+       liItem[0].classList.add('select-item--active');
       liItem.forEach(item => {
          item.addEventListener('click', function () {
-            console.log(this);
-            updateName(this);
+          updateName(this);
             liItem.forEach(li => {
                li.classList.remove('select-item--active');
             });
@@ -188,11 +183,10 @@ console.log(liItem);
             btnSelect.classList.remove('select--active');
          });
       });
-   }
-   listStyle();
-
+   }   
+   listStyle(liitems); 
    function updateName(selectedLi) {
-
+      console.log(selectedLi);
       btnSelect.firstElementChild.textContent = selectedLi.textContent;
       contentSelect.classList.remove(activeClass);
    }
@@ -203,8 +197,8 @@ console.log(liItem);
 }
 
 selectProps('.aside-filter__select-btn.select-power__btn', '.aside-filter__select-wrapper.select-power__wrapper', '.aside-filter__select-list.select-power__list',
-   'aside-filter__select-item', 'triggersSelect');
+   'aside-filter__select-item', 'triggersSelect', '.select-power__item');
 selectProps('.aside-filter__select-btn.select-motor__btn', '.aside-filter__select-wrapper.select-motor__wrapper', '.aside-filter__select-list.select-motor__list',
-   'aside-filter__select-item', 'triggersSelect');
-   selectProps('.aside-filter__select-btn.select-speed__btn', '.aside-filter__select-wrapper.select-speed__wrapper', '.aside-filter__select-list.select-speed__list',
-      'aside-filter__select-item', 'triggersSelect');
+   'aside-filter__select-item', 'triggersSelect', '.select-motor__item');
+selectProps('.aside-filter__select-btn.select-speed__btn', '.aside-filter__select-wrapper.select-speed__wrapper', '.aside-filter__select-list.select-speed__list',
+   'aside-filter__select-item', 'triggersSelect', '.select-speed__item');
